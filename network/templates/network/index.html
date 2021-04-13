@@ -1,5 +1,14 @@
 {% extends "network/layout.html" %}
 
 {% block body %}
-    TODO
+<h1 id="title">All Posts</h1>
+
+<form id="new_post" action="{% url 'post' %}" method="post">
+    {% csrf_token %}
+    <h3>New Post</h3>
+    <div class="form-group">
+        <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Post</button>
+</form>
 {% endblock %}

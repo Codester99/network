@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from .models import User
+from .models import Post, User
 
 
 def index(request):
@@ -61,3 +61,17 @@ def register(request):
         return HttpResponseRedirect(reverse("index"))
     else:
         return render(request, "network/register.html")
+
+def post(request):
+    # 
+    if request.method == "POST":
+
+        content = request.POST["content"]
+        author = User.objects.get(username=request.user)
+
+        Post(content=content, author=author).save()
+        return HttpResponseRedirect(reverse("index"))
+    #
+    else:
+
+        return index(request)

@@ -1,0 +1,14 @@
+#new_post {
+    margin: auto;
+    padding: 20px;
+    width: 97%;
+    height: auto;
+    border: solid;
+    border-width: 0.5px;
+    border-color: black;
+    border-radius: 15px;
+}
+
+#title {
+    padding: 15px;
+}
